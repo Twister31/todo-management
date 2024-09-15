@@ -1,0 +1,10 @@
+package net.java.todo.repository;
+
+import net.java.todo.entity.Todo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TodoRepository extends JpaRepository<Todo, Long> {
+
+
+
+}
