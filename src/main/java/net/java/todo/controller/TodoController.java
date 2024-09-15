@@ -5,6 +5,7 @@ import net.java.todo.dto.TodoDto;
 import net.java.todo.service.TodoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,6 +17,7 @@ public class TodoController {
 
     //build add Todo REST API
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<TodoDto> addTodo(@RequestBody TodoDto todoDto){
 
@@ -25,6 +27,7 @@ public class TodoController {
     }
 
     // build get todo rest api
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("{id}")
     public ResponseEntity<TodoDto> getTodo(@PathVariable("id") Long todoId){
         TodoDto todoDto = todoService.getTodo(todoId);
@@ -32,6 +35,7 @@ public class TodoController {
     }
 
     //build update todo rest api
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("{id}")
     public ResponseEntity<TodoDto> updateTodo(@RequestBody TodoDto todoDto,@PathVariable("id") Long todoId){
         TodoDto updateTodo = todoService.updateTodo(todoDto, todoId);
@@ -39,6 +43,7 @@ public class TodoController {
     }
 
     // build delete Todo rest api
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteTodo(@PathVariable("id") Long todoId){
         todoService.deleteTodo(todoId);
@@ -46,6 +51,7 @@ public class TodoController {
     }
 
     // build Complete Todo rest api
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/complete")
     public ResponseEntity<TodoDto> completeTodo(@PathVariable("id") Long todoId){
         TodoDto updatedTodo = todoService.completeTodo(todoId);
@@ -53,6 +59,7 @@ public class TodoController {
     }
 
     // build In Complete Todo rest api
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @PatchMapping("{id}/incomplete")
     public ResponseEntity<TodoDto> inCompleteTodo(@PathVariable("id") Long todoId){
         TodoDto updatedTodo = todoService.incompleteTodo(todoId);
