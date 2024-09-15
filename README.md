@@ -31,3 +31,7 @@ Adding multi-factor authentication, such as entering a username and password.
 # version_1.2
 
 In this release, we have implemented database authentication by creating user and role tables in the database and establishing a many-to-many relationship between them. This allows for a user to have multiple roles and for multiple roles to be assigned to a single user. To achieve this, we have created User and Role JPA entities, which Hibernate will then map to corresponding tables in the database.
+
+# version_1.3
+
+In this release, we implemented data modification and login/password input directly through the MySQL database, rather than making code changes.
