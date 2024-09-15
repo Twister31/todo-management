@@ -1,4 +1,4 @@
-# todo-management
+# Todo-management
 
 # Description
 
@@ -23,5 +23,3 @@ The system implements a role-based access control mechanism to ensure security. 
 - Hibernate: An object-relational mapping tool for Java. It maps Java classes to database tables.
 - MySQL: A popular open-source relational database management system.
 - Postman: An HTTP client used for testing the API.
-
-Note: This translation aims to provide a clear and concise explanation of the project's functionality and the technologies used. The specific wording and sentence structure may vary depending on the desired level of formality and the target audience.
