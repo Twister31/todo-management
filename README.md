@@ -23,3 +23,7 @@ The system implements a role-based access control mechanism to ensure security. 
 - Hibernate: An object-relational mapping tool for Java. It maps Java classes to database tables.
 - MySQL: A popular open-source relational database management system.
 - Postman: An HTTP client used for testing the API.
+
+# version_1.1
+
+Adding multi-factor authentication, such as entering a username and password.
